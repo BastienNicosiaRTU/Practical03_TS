@@ -24,5 +24,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', hello_world, name='root'),  # Point root URL to hello_world view
     path('hello/', include('helloapp.urls')),  # Keep this if you want /hello/ as well
+    path('hello2/', include('hello2app.urls')),
 ]
 

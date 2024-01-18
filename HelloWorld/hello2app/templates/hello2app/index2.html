@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #F3F4F6;
+            background-image: linear-gradient(45deg, #e3eaf5 25%, transparent 25%, transparent 50%, #e3eaf5 50%, #e3eaf5 75%, transparent 75%, transparent);
+            background-size: 28px 28px;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        .header, .footer {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            width: 100%;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .container {
+            text-align: center;
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            margin: 20px 0;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .container:hover {
+            transform: scale(1.05);
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #367c39;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2>Welcome to My Django App using MVT</h2>
+    </div>
+
+    <div class="container">
+        <h1>Hello, World!</h1>
+        <button onclick="toggleMessage()">Click Me!</button>
+        <p id="message" style="margin-top: 20px;"></p>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Hello World App</p>
+    </div>
+
+    <script>
+        function toggleMessage() {
+            var message = document.getElementById('message');
+            if (message.innerHTML === '') {
+                message.innerHTML = 'Hello there! Thanks for clicking.';
+            } else {
+                message.innerHTML = '';
+            }
+        }
+    </script>
+</body>
+</html>
