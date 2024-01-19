@@ -2,15 +2,70 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Submit Message</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Sender</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e9eff1;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .form-container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+        }
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        input[type="text"], textarea {
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        .submit-btn {
+            background-color: #4caf50;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .submit-btn:hover {
+            background-color: #43a047;
+        }
+    </style>
 </head>
 <body>
-    <form method="post" action="{% url 'submit_message' %}">
-        {% csrf_token %}
-        <input type="text" name="sender" placeholder="Your Name">
-        <input type="text" name="receiver" placeholder="Receiver's Name">
-        <textarea name="content" placeholder="Your Message"></textarea>
-        <button type="submit">Send Message</button>
-    </form>
+    <div class="form-container">
+        <h2>Send a Message</h2>
+        <form action="{% url 'submit_message' %}" method="post">
+            {% csrf_token %}
+            <input type="text" name="sender" placeholder="Your Name (Sender)" required>
+            <input type="text" name="receiver" placeholder="Receiver's Name" required>
+            <textarea name="content" placeholder="Your Message" required></textarea>
+            <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+    </div>
 </body>
 </html>
